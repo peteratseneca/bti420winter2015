@@ -1,0 +1,37 @@
+﻿@model RelatedData.Controllers.Supplier
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Related Data</h1>
+    <p class="lead">Web app example, with data classes that are associated/related</p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>Related data</h2>
+        <p>It's easy to write data classes that are associated with one another.</p>
+        <p>This solution includes a web app project and a console app project, and shows how:</p>
+        <ul>
+            <li>Write associated classes</li>
+            <li>Create related objects</li>
+            <li>Access data in related objects</li>
+        </ul>
+        <p>Also, open the "DataClasses.cd" class diagram that's in the Controllers folder.</p>
+    </div>
+    <div class="col-md-4">
+        <h2>Supplier - Product</h2>
+        <p>Study the code in the HomeController.cs Index() method, and in the Index.cshtml view. Together, they create the content you see below.</p>
+        <p>@Model.Name (@Model.Country) supplies these products:</p>
+        <ul>
+            @{
+                foreach (var product in Model.Products)
+                {
+                    <li>@product.Name, UPC @product.UPC, @product.MSRP.ToString("C")</li>
+                }
+            }
+        </ul>
+    </div>
+</div>

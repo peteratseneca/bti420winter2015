@@ -1,0 +1,18 @@
+﻿@model Dictionary<string, string>
+
+@{
+    ViewBag.Title = "FromUri";
+}
+
+<h2>FromUri</h2>
+
+<p>Here are the query string key-value pairs:</p>
+<table style="width: 33%;">
+    <tr><th>Key</th><th>Value</th></tr>
+    @{
+        foreach (var item in Model)
+        {
+            <tr><td>@item.Key</td><td>@item.Value</td></tr>
+        }
+    }
+</table>

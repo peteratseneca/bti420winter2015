@@ -1,0 +1,30 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1" MembersFormat="FullSignature">
+  <Class Name="RelatedData.Controllers.Supplier">
+    <Position X="0.5" Y="0.5" Width="2.25" />
+    <AssociationLine Name="Products" Type="RelatedData.Controllers.Product" FixedFromPoint="true">
+      <Path>
+        <Point X="2.75" Y="1.812" />
+        <Point X="6.25" Y="1.812" />
+      </Path>
+    </AssociationLine>
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAAAAAAAAAAQAAAIAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>Controllers\Home_vm.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsCollectionAssociation>
+      <Property Name="Products" />
+    </ShowAsCollectionAssociation>
+  </Class>
+  <Class Name="RelatedData.Controllers.Product">
+    <Position X="6.25" Y="0.5" Width="2.5" />
+    <TypeIdentifier>
+      <HashCode>AAACAAAAAAAAAIAAAAAAAAQAAAIAAAAAQAAAAAAAIAA=</HashCode>
+      <FileName>Controllers\Home_vm.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="Supplier" />
+    </ShowAsAssociation>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

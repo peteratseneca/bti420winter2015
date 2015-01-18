@@ -1,0 +1,28 @@
+﻿@model Collections.Controllers.Person
+
+@{
+    ViewBag.Title = "Contact";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<address>
+    School of ICT<br />
+    Seneca College<br />
+    Toronto, ON M3J3M6<br />
+    <abbr title="Phone">P:</abbr>
+    (416) 491-5050
+</address>
+
+<p>Render the object and its collection...</p>
+
+<p>The person named @Model.Name (Id @Model.Id) has @Model.FavouriteColours.Count favourite colours:</p>
+
+<ul>
+    @{
+        foreach (var colour in Model.FavouriteColours)
+        {
+            <li>@colour</li>
+        }
+    }
+</ul>

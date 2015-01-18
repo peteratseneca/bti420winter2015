@@ -1,0 +1,27 @@
+﻿@model IntroToForms.Controllers.PersonCollection
+
+@{
+    ViewBag.Title = "ViewModel";
+}
+
+<h2>List of Persons</h2>
+<p>@Model.StatusMessage</p>
+<table style="width: 33%;">
+  <tr><th>Name</th><th>Age</th></tr>
+  @{
+        foreach (var person in Model.Persons)
+        {
+            <tr><td>@person.GivenNames @person.LastName</td><td>@person.Age</td></tr>
+        }}
+</table>
+
+<h2>Add a new Person</h2>
+
+<form action="/learnforms/handleviewmodel" method="post">
+    <p>ID number:<br /><input name="Id" type="number" autofocus /></p>
+    <p>Given name(s):<br /><input name="GivenNames" /></p>
+    <p>Last name:<br /><input name="LastName" /></p>
+    <p>Age:<br /><input name="Age" type="number" /></p>
+    <p><input type="submit" value="Add person" /></p>
+</form>
+

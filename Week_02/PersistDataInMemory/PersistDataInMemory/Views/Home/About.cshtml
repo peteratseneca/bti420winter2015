@@ -1,0 +1,14 @@
+﻿@model PersistDataInMemory.Controllers.AboutViewModel
+
+@{
+    ViewBag.Title = "About";
+}
+<h2>@ViewBag.Title.</h2>
+<h3>@ViewBag.Message</h3>
+
+<p>Data round-tripped from ASP.NET Session State</p>
+
+<p>myAge - @Model.MyAge</p>
+<p>myName - @Model.MyName</p>
+<p>colours = @Model.Colours.Count items</p>
+<p>teachers - @Model.Teachers.Count items</p>
