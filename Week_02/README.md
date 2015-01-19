@@ -33,6 +33,15 @@ Features:
 - one-to-many
 - create associated objects, access data within
 
+**PersistDataIntro**
+
+Use a library to persist data in the App_Data folder.
+
+Features:
+- Biggy library
+- Creates new objects
+- Displays them in a table in the 'index' view
+
 **PersistDataInMemory**
 
 Use ASP.NET Session State to save data during a user's interactive session.

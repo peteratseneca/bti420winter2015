@@ -1,0 +1,40 @@
+﻿@model List<PersistDataIntro.Controllers.Person>
+
+@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>PersistDataIntro</h1>
+    <p class="lead">Introduces you to persistent data. Easy to understand, easy to use.</p>
+</div>
+
+<div class="row">
+    <div class="col-md-6">
+        <h2>Persons</h2>
+        <p>These objects were added in the CreateDataStore() and AddPersons() methods.</p>
+
+        <table class="table-striped" style="width:100%">
+            <tr>
+                <td><strong>Identifier</strong></td>
+                <td><strong>Name</strong></td>
+                <td><strong>Favourite Colours</strong></td>
+            </tr>
+            @{
+                foreach (var person in Model)
+                {
+                    <tr>
+                        <td>@person.Id</td>
+                        <td>@person.Name</td>
+                        <td>@string.Join(", ", person.FavouriteColours.ToArray())</td>
+                    </tr>
+                }
+            }
+        </table>
+    </div>
+    <div class="col-md-6">
+        <h2>Get more information</h2>
+        <p>The Biggy library was started by Rob Conery, and taken over by John Atten.</p>
+        <p><a class="btn btn-default" href="https://github.com/xivSolutions/biggy" target="_blank">Learn more &raquo;</a></p>
+    </div>
+</div>
