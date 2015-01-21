@@ -1,0 +1,14 @@
+﻿@{
+    ViewBag.Title = "RequestBody";
+}
+
+<h2>Read from request body</h2>
+
+<form action="/home/requestbodypost" method="post">
+    <p>
+        Type your input, and press the button:<br />
+        <input name="userInput" autofocus />
+    </p>
+    <p><input type="submit" value="Do it" /></p>
+    <p>@ViewBag.UserInput</p>
+</form>

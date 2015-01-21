@@ -1,0 +1,26 @@
+﻿@{
+    ViewBag.Title = "Home Page";
+}
+
+<div class="jumbotron">
+    <h1>Get data from user</h1>
+    <p class="lead">Three ways to get data from a user in a browser.</p>
+</div>
+
+<div class="row">
+    <div class="col-md-4">
+        <h2>From the URI</h2>
+        <p>Often used in HTTP GET requests.</p>
+        <p>Pass in one or more key-value pairs.</p>
+    </div>
+    <div class="col-md-4">
+        <h2>From the request body</h2>
+        <p>Use the controller's Request.Form property.</p>
+        <p>Not ideal, because you must explicitly dereference each property individually.</p>
+    </div>
+    <div class="col-md-4">
+        <h2>Strongly-typed view model (preferred)</h2>
+        <p>One of the best features of this ASP.NET MVC framework.</p>
+        <p>User input is bound to a view model object. Then, it's easy to use the object's properties.</p>
+    </div>
+</div>

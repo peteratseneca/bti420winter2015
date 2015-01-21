@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "ViewModel";
+    var person = ViewBag.UserInput as GetDataFromUser.Controllers.Person;
+}
+
+<h2>Add a new Person</h2>
+
+<form action="/home/viewmodel" method="post">
+    <p>Identifier:<br /><input name="Id" type="number" autofocus /></p>
+    <p>First name:<br /><input name="FirstName" /></p>
+    <p>Last name:<br /><input name="LastName" /></p>
+    <p>Age:<br /><input name="Age" type="number" /></p>
+    <p><input type="submit" value="Add person" /></p>
+</form>
+
+<p>&nbsp;</p>
+
+<h2>Recently-added person</h2>
+
+@{
+    if (person != null)
+    {
+        <p>New person data:</p>
+        <p>Person name: @person.FirstName @person.LastName</p>
+        <p>Person's age: @person.Age</p>
+        <p>Identifier: @person.Id</p>
+    }
+    else
+    {
+        <p>(none; add a person, using the form above)</p>
+    }
+}

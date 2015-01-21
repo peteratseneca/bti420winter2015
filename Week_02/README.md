@@ -1,21 +1,5 @@
 ### Week 2 code examples
 
-**Strings**
-
-Learn about the .NET Framework "String" class.
-
-Features:
-- popular and often-used string methods
-
-**Conversions**
-
-String - number conversions.
-
-Features:
-- string-to-number, int and double
-- number-to-string, int and double
-- includes parsing and null tests
-
 **Collections**
 
 Introduction to collections.
@@ -33,35 +17,18 @@ Features:
 - one-to-many
 - create associated objects, access data within
 
-**PersistDataIntro**
-
-Use a library to persist data in the App_Data folder.
-
-Features:
-- Biggy library
-- Creates new objects
-- Displays them in a table in the 'index' view
-
-**PersistDataInMemory**
-
-Use ASP.NET Session State to save data during a user's interactive session.
-
-Features:
-- int, string, collection persistence 
-- test existence to prevent exceptions
-- round-trip data: create, save, fetch
-
 **IntroToLINQ**
 
 Introduction to C# language-integrated query.
 
 Features:
+- it's a console app
 - querying collections
 - simple collection of strings
 - collection of complex/custom objects
 - popular query methods
 
-**IntroToForms**
+**GetDataFromUser**
 
 Get data from the user, into your app.
 
@@ -69,3 +36,12 @@ Features:
 - get data from the URI
 - simple HTML Form handling
 - strongly-typed view model, and model validation
+
+**FormsIntro**
+
+Use the Biggy library to persist data in the App_Data folder.
+
+Features:
+- Biggy library
+- Creates new objects
+- Displays them in a table in the 'index' view
