@@ -1,0 +1,73 @@
+﻿@model Lab5.Controllers.ArtistBaseWithAlbums
+
+@{
+    ViewBag.Title = "Artist details";
+}
+
+<h2>Artist details</h2>
+
+<div>
+    <h4>Information about the artist, and their collection of albums</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BirthName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BirthName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BirthOrStartDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BirthOrStartDate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StartDecade)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StartDecade)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Genre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Genre)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Albums)
+        </dt>
+
+        <dd>
+            @{
+                foreach (var item in Model.Albums)
+                {
+                    <p><img src="@item.AlbumCoverUrl" alt="" style="width: 50px;" />
+                    @string.Format(" \"{0}\", released on {1}, produced by {2}", 
+                    item.Name, item.ReleaseDate.ToShortDateString(), item.Producer)</p>
+                }
+            }
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
