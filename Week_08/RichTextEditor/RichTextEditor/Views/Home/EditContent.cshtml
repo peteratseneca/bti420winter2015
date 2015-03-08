@@ -1,0 +1,25 @@
+﻿@{
+    ViewBag.Title = "EditContent";
+}
+
+<h2>Rich Text Editor</h2>
+
+<p>This example teaches you how to use CKEditor in your app. Here's how:</p>
+<ol>
+    <li>Load the "ckeditor.js" script, using its content delivery network (CDN)</li>
+    <li>Add an HTML TextArea to your page, and use its "name" attribute</li>
+    <li>Activate the editor (with the CKEDITOR.replace method; optionally set the startup focus)</li>
+    <li>Enclose the editor in an HTML form to enable server-side processing</li>
+</ol>
+<p><strong>Type some text, and click the Save button.</strong> Use the toolbar to add text effects.</p>
+
+<script src="//cdn.ckeditor.com/4.4.7/standard/ckeditor.js"></script>
+
+@using (Html.BeginForm())
+{
+    <p><textarea name="editor1">@ViewBag.Content</textarea></p>
+
+    <script>CKEDITOR.replace('editor1', { startupFocus: true });</script>
+
+    <p><input type="submit" value="Save" class="btn btn-default" /></p>
+}
