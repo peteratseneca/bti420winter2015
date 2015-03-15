@@ -1,0 +1,70 @@
+﻿@model Games.Controllers.VenueBaseWithImage
+
+@{
+    ViewBag.Title = "Venue details";
+}
+
+<h2>Venue details</h2>
+
+<div>
+    @*<h4>VenueBase</h4>*@
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Location)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SportNames)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SportNames)
+        </dd>
+
+        <dt>
+            Photo
+            @*@Html.DisplayNameFor(model => model.PhotoContentType)*@
+        </dt>
+
+        <dd>
+            <img src='@("/image/venue/photo/"+Model.Id)' alt="" />
+            @*@Html.DisplayFor(model => model.PhotoContentType)*@
+        </dd>
+
+        <dt>
+            Map
+            @*@Html.DisplayNameFor(model => model.MapContentType)*@
+        </dt>
+
+        <dd>
+            <a href='@("/image/venue/map/"+Model.Id)' target="_blank">PDF map</a>
+            @*@Html.DisplayFor(model => model.MapContentType)*@
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |*@
+    @Html.ActionLink("Back to List", "Index")
+</p>

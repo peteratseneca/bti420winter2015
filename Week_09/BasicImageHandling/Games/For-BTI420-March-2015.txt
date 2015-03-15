@@ -1,0 +1,2 @@
+﻿This code example is being used in BTI420 in March 2015.
+It shows how to handle images (e.g. jpg, png). 

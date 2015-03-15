@@ -1,0 +1,75 @@
+﻿@model IEnumerable<Games.Controllers.SportBase>
+
+@{
+    ViewBag.Title = "Sport list";
+}
+
+<h2>Sport list</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @*@Html.DisplayNameFor(model => model.LogoContentType)*@
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Description)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.History)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HowItWorks)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.VenueNames)
+        </th>
+        <th>
+            @*@Html.DisplayNameFor(model => model.PhotoContentType)*@
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                <img src='@("/image/sport/logo/"+item.Id)' alt="" style="width: 50px;" />
+                @*@Html.DisplayFor(modelItem => item.LogoContentType)*@
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @(item.Description.Substring(0, 100) + "...")
+                @*@Html.DisplayFor(modelItem => item.Description)*@
+            </td>
+            <td>
+                @(item.History.Substring(0, 100) + "...")
+                @*@Html.DisplayFor(modelItem => item.History)*@
+            </td>
+            <td>
+                @(item.HowItWorks.Substring(0, 100) + "...")
+                @*@Html.DisplayFor(modelItem => item.HowItWorks)*@
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.VenueNames)
+            </td>
+            <td>
+                <img src='@("/image/sport/photo/"+item.Id)' alt="" style="width: 100px;" />
+                @*@Html.DisplayFor(modelItem => item.PhotoContentType)*@
+            </td>
+            <td>
+                @*@Html.ActionLink("Edit", "Edit", new { id=item.Id }) |*@
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) @*|
+                    @Html.ActionLink("Delete", "Delete", new { id=item.Id })*@
+            </td>
+        </tr>
+    }
+
+</table>

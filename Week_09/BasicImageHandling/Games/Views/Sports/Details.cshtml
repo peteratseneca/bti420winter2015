@@ -1,0 +1,78 @@
+﻿@model Games.Controllers.SportBaseWithImage
+
+@{
+    ViewBag.Title = "Sport details";
+}
+
+<h2>Sport details</h2>
+
+<div>
+    @*<h4>SportBase</h4>*@
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.History)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.History)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.HowItWorks)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.HowItWorks)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.VenueNames)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.VenueNames)
+        </dd>
+
+        <dt>
+            Logo
+            @*@Html.DisplayNameFor(model => model.LogoContentType)*@
+        </dt>
+
+        <dd>
+            <img src='@("/image/sport/logo/"+Model.Id)' alt="" />
+            @*@Html.DisplayFor(model => model.LogoContentType)*@
+        </dd>
+
+        <dt>
+            Photo
+            @*@Html.DisplayNameFor(model => model.PhotoContentType)*@
+        </dt>
+
+        <dd>
+            <img src='@("/image/sport/photo/"+Model.Id)' alt="" />
+            @*@Html.DisplayFor(model => model.PhotoContentType)*@
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |*@
+    @Html.ActionLink("Back to List", "Index")
+</p>
