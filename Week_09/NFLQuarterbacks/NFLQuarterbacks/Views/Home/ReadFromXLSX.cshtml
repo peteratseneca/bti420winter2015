@@ -1,0 +1,117 @@
+﻿@model IEnumerable<NFLQuarterbacks.Controllers.QuarterbackBase>
+
+@{
+    ViewBag.Title = "QB Stats";
+}
+
+<h2>Quarterback stats, read from XLSX</h2>
+
+<p>
+    @*@Html.ActionLink("Create New", "Create")*@
+</p>
+<table class="table table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Rank)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Player)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Team)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Completions)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Attempts)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Percentage)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.AttemptsPerGame)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Yards)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.YardsPerCompletion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.YardsPerGame)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Touchdowns)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Interceptions)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Longest)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Sacks)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rating)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Rank)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Player)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Team)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Completions)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Attempts)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Percentage)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.AttemptsPerGame)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Yards)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.YardsPerCompletion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.YardsPerGame)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Touchdowns)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Interceptions)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Longest)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Sacks)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Rating)
+        </td>
+        <td>
+            @*@Html.ActionLink("Edit", "Edit", new { id=item.Id }) |
+            @Html.ActionLink("Details", "Details", new { id=item.Id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.Id })*@
+        </td>
+    </tr>
+}
+
+</table>
