@@ -1,6 +1,6 @@
 ### Week 9 code examples
 
-**BasicImageHandling**
+**Basic Image Handling**
 
 Learn how to upload images, and deliver images.
 
