@@ -1,0 +1,19 @@
+﻿@model List<string>
+@{
+    ViewBag.Title = "Claims";
+}
+
+<h2>Claims for the logged-in user</h2>
+
+@foreach (var item in Model)
+{
+    <p>@item</p>
+}
+
+<p>&nbsp;</p>
+
+<h4>Role links - if you're not in the role, you'll be redirected to the login page</h4>
+
+@Html.ActionLink("Any role", "AccountRoleAny") | @Html.ActionLink("User", "AccountRoleUser") |
+@Html.ActionLink("Student", "AccountRoleStudent") | @Html.ActionLink("Teacher", "AccountRoleTeacher") |
+@Html.ActionLink("Coordinator", "AccountRoleCoordinator") | @Html.ActionLink("Teacher or Coordinator", "AccountRoleTeacherCoordinator")
