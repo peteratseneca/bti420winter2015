@@ -1,0 +1,65 @@
+﻿@model SecurityIntro.Models.AccountDetails
+
+@{
+    ViewBag.Title = "Account details";
+}
+
+<h2>Account details</h2>
+
+<div>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.UserName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.UserName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ClaimsName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClaimsName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ClaimsGivenName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClaimsGivenName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ClaimsSurname)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClaimsSurname)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ClaimsEmail)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClaimsEmail)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ClaimsRoles)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ClaimsRoles)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @*@Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")*@
+</p>

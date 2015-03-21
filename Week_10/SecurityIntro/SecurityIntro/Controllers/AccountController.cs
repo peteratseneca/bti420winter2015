@@ -205,6 +205,48 @@ namespace SecurityIntro.Controllers
             return View(registerForm);
         }
 
+        // ############################################################
+        // New code added in March 2015
+
+        // GET: /Account/Details
+        public ActionResult Details()
+        {
+            // Create a view model object
+            var accountDetails = new AccountDetails();
+
+            // Identity object "name" (i.e. not the claim)
+            accountDetails.UserName = User.Identity.Name;
+
+            // Work with the current User in claims-compatible mode
+            var identity = User.Identity as ClaimsIdentity;
+
+            // Now, go through the claims...
+
+            // Get the name, if present
+            var name = identity.FindFirst(ClaimTypes.Name);
+            accountDetails.ClaimsName = name == null ? "(none)" : name.Value;
+
+            // Get the given name, if present
+            var givenName = identity.FindFirst(ClaimTypes.GivenName);
+            accountDetails.ClaimsGivenName = givenName == null ? "(none)" : givenName.Value;
+
+            // Get the surname, if present
+            var surname = identity.FindFirst(ClaimTypes.Surname);
+            accountDetails.ClaimsSurname = surname == null ? "(none)" : surname.Value;
+
+            // Get the email, if present
+            var email = identity.FindFirst(ClaimTypes.Email);
+            accountDetails.ClaimsEmail = email == null ? "(none)" : email.Value;
+
+            // Get the roles, if present
+            var roles = identity.FindAll(ClaimTypes.Role).Select(rn => rn.Value).ToArray();
+            accountDetails.ClaimsRoles = roles.Count() == 0 ? "(none)" : string.Join(", ", roles);
+
+            return View(accountDetails);
+        }
+
+        // ############################################################
+
         //
         // GET: /Account/ConfirmEmail
         [AllowAnonymous]
