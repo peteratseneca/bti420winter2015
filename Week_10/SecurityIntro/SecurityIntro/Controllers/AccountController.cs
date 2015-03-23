@@ -166,14 +166,14 @@ namespace SecurityIntro.Controllers
                 {
                     // ##################################################
 
-                    // Add claims
+                    // Add name and identity claims
 
                     await UserManager.AddClaimAsync(user.Id, new Claim(ClaimTypes.Email, model.Email));
                     await UserManager.AddClaimAsync(user.Id, new Claim(ClaimTypes.GivenName, model.FirstName));
                     await UserManager.AddClaimAsync(user.Id, new Claim(ClaimTypes.Surname, model.LastName));
                     await UserManager.AddClaimAsync(user.Id, new Claim(ClaimTypes.Role, "User"));
 
-                    // Add 'role' claims
+                    // Add role claims
 
                     foreach (var role in model.Roles)
                     {
