@@ -1,0 +1,73 @@
+﻿@model IEnumerable<Family.Controllers.PersonBaseWithRelations>
+
+@{
+    ViewBag.Title = "Person list";
+}
+
+<h2>Person list</h2>
+
+<p>
+    @*@Html.ActionLink("Create New", "Create")*@
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FamilyName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GivenNames)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gender)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.BirthDate)
+        </th>
+        <th>Father</th>
+        <th>Mother</th>
+        <th>Children</th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FamilyName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.GivenNames)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Gender)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BirthDate)
+            </td>
+            <td>
+                @if (item.Father != null)
+                {
+                    @item.Father.FamilyName<text>, </text>@item.Father.GivenNames
+                }
+            </td>
+            <td>
+                @if (item.Mother != null)
+                {
+                    @item.Mother.FamilyName<text>, </text>@item.Mother.GivenNames
+                }
+            </td>
+            <td>
+                @if (item.Children.Count() > 0)
+                {
+                    <text>Yes</text>
+                }
+            </td>
+            <td>
+                @Html.ActionLink("Family Edit", "FamilyEdit", new { id = item.Id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.Id }) |
+                @*@Html.ActionLink("Delete", "Delete", new { id=item.Id })*@
+            </td>
+        </tr>
+    }
+
+</table>

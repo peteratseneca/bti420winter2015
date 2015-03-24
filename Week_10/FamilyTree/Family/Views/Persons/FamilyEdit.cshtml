@@ -1,0 +1,80 @@
+﻿@model Family.Controllers.PersonBaseEditFamilyForm
+
+@{
+    ViewBag.Title = "Edit family relations";
+}
+
+<h2>Edit family relations</h2>
+
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Select Father, Mother, Children, and click Save</h4>
+        <hr />
+
+        <!-- Replaced the individual textboxes with one combined textbox -->
+        <!-- See the 'hidden' fields below, which satisfies the POST view model -->
+
+        <div class="form-group">
+            <label class="control-label col-md-2">Name and Gender</label>
+            <div class="col-md-10">
+                @{
+                    var nameAndGender = string.Format("{0}, {1}, {2}",
+                        Model.FamilyName, Model.GivenNames, Model.Gender);
+                }
+                <input class="form-control" readonly value="@nameAndGender" />
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.BirthDate, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.BirthDate, new { htmlAttributes = new { @class = "form-control", @readonly = "readonly" } })
+                @Html.ValidationMessageFor(model => model.BirthDate, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Father">Father</label>
+            <div class="col-md-10">
+                @Html.DropDownList("FatherId", Model.Father, new { @class = "form-control", @size = 8 })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Mother">Mother</label>
+            <div class="col-md-10">
+                @Html.DropDownList("MotherId", Model.Mother, new { @class = "form-control", @size = 8 })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="control-label col-md-2" for="Children">Children</label>
+            <div class="col-md-10">
+                @Html.ListBox("ChildrenIds", Model.Children, new { @class = "form-control", @size = 8 })
+            </div>
+        </div>
+
+        @Html.HiddenFor(model => model.Id)
+        @Html.HiddenFor(model => model.FamilyName)
+        @Html.HiddenFor(model => model.GivenNames)
+        @Html.HiddenFor(model => model.Gender)
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Save" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

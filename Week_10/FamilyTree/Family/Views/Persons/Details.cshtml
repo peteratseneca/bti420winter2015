@@ -1,0 +1,108 @@
+﻿@model Family.Controllers.PersonBaseWithRelations
+
+@{
+    ViewBag.Title = "Person details";
+}
+
+<h2>Person details</h2>
+
+<div>
+    @*<h4>PersonBase</h4>*@
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.FamilyName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FamilyName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GivenNames)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GivenNames)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gender)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gender)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.BirthDate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.BirthDate)
+        </dd>
+
+        <dt>
+            &nbsp;
+        </dt>
+
+        <dd>
+            &nbsp;
+        </dd>
+
+        <dt>
+            Father
+        </dt>
+
+        <dd>
+            @{
+                var fatherName = "(not specified)";
+                if (Model.Father!=null)
+                {
+                    fatherName = string.Format("{0}, {1}", 
+                        Model.Father.FamilyName, Model.Father.GivenNames);
+                }
+            }
+            @fatherName
+        </dd>
+
+        <dt>
+            Mother
+        </dt>
+
+        <dd>
+            @{
+                var motherName = "(not specified)";
+                if (Model.Mother != null)
+                {
+                    motherName = string.Format("{0}, {1}",
+                        Model.Mother.FamilyName, Model.Mother.GivenNames);
+                }
+            }
+            @motherName
+        </dd>
+
+        <dt>
+            Children
+        </dt>
+
+        <dd>
+            @if (Model.Children.Count()==0)
+            {
+                <text>(not specified)</text>
+            }
+            @{
+                foreach (var child in Model.Children)
+                {
+                    var name = string.Format("{0}, {1}", child.FamilyName, child.GivenNames);
+                    <text>@name<br /></text>
+                }
+            }
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Family Edit", "FamilyEdit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
