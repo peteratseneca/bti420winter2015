@@ -1,0 +1,29 @@
+﻿
+@{
+    ViewBag.Title = "LoadEmployeesFromCsv";
+}
+
+<h2>LoadEmployeesFromCsv</h2>
+
+<h3>Are you sure you want to load Employees?</h3>
+<div>
+    <h4>Employees</h4>
+    <hr />
+
+    @using (Html.BeginForm())
+    {
+        if (string.IsNullOrEmpty(TempData["EmployeesLoad"] as string))
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-actions no-color">
+                <input type="submit" value="Load" class="btn btn-default" /> |
+                @Html.ActionLink("Back to List", "Index")
+            </div>
+        }
+        else
+        {
+            <p class="text-danger">(Employees have been loaded successfully)</p>
+        }
+    }
+
+</div>

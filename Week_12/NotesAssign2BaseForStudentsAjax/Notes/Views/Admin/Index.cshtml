@@ -1,0 +1,108 @@
+﻿@model IEnumerable<Notes.Controllers.ApplicationUserBase>
+@*@model IEnumerable<Notes.Models.ApplicationUser>*@
+
+@{
+    ViewBag.Title = "List of user accounts";
+}
+
+<h2>List of user accounts</h2>
+
+<p>
+    @*@Html.ActionLink("Create New", "Create")*@
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th>
+            Is a manager?
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.IsManager)
+            </td>
+            <td>
+                @*@Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
+            </td>
+        </tr>
+    }
+
+</table>
+
+@{
+    var tempData = TempData["Message"] as string;
+    if (!string.IsNullOrEmpty(tempData))
+    {
+        <p class="text-danger">@tempData</p>
+    }
+}
+
+@*<hr />
+@Html.ActionLink("List of non-manager users", "NonManagers") |
+@Html.ActionLink("List of Employees", "Index", "Employees") |
+@Html.ActionLink("List of Organizational Units", "Index", "OUs")*@
+
+
+@*<dl class="dl-horizontal">
+
+    <dt>
+        Load employees from the CSV file
+    </dt>
+    <dd>
+        @using (Html.BeginForm("LoadEmployees", "Admin", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-actions no-color">
+                <input type="submit" value="Load Employees" class="btn btn-info col-md-2" />
+            </div>
+        }
+    </dd>
+
+    <dt>&nbsp;</dt>
+
+    <dt>
+        Load OUs programmatically
+    </dt>
+    <dd>
+        @using (Html.BeginForm("LoadOUs", "Admin", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-actions no-color">
+                <input type="submit" value="Load OUs" class="btn btn-info col-md-2" />
+            </div>
+        }
+    </dd>
+
+    <dt>&nbsp;</dt>
+
+    <dt>
+        Delete data from the data store<br />
+    </dt>
+    <dd>
+        @using (Html.BeginForm("DeleteData", "Admin", FormMethod.Post))
+        {
+            @Html.AntiForgeryToken()
+            <div class="form-actions no-color">
+                <input type="submit" value="Delete Data" class="btn btn-danger col-md-2" />
+            </div>
+        }
+    </dd>
+
+</dl>*@

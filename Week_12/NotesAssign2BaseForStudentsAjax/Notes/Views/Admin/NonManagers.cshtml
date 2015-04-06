@@ -1,0 +1,48 @@
+﻿@model IEnumerable<Notes.Controllers.ApplicationUserBase>
+@*@model IEnumerable<Notes.Models.ApplicationUser>*@
+
+@{
+    ViewBag.Title = "Users who are not managers";
+}
+
+<h2>Users who are not managers</h2>
+
+<p>
+    @*@Html.ActionLink("Create New", "Create")*@
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.FirstName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.LastName)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.FirstName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.LastName)
+            </td>
+            <td>
+                <a href='@string.Format("configure/{0}/asmanager", item.UserName)'>Configure as a Manager</a>
+                @*@Html.ActionLink("Configure as a Manager", "AddManager", new { username = item.UserName /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                    @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })*@
+            </td>
+        </tr>
+    }
+
+</table>
+
+<hr />
+
+<div>
+    @Html.ActionLink("Back to the list of all users", "Index")
+</div>

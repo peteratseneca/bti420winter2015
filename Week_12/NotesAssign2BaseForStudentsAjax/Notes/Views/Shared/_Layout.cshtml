@@ -1,0 +1,75 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Notes</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Notes App", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    @*<li>@Html.ActionLink("Home", "Index", "Home")</li>*@
+
+                    @using System.Security.Claims
+
+                    @*@if (User.Identity.IsAuthenticated)
+                        {
+                            <li>@Html.ActionLink("Some task", "Index", "Foo")</li>
+                        }*@
+
+                    @if ((User as ClaimsPrincipal).HasClaim(ClaimTypes.Role, "Employee"))
+                    {
+                        <li>@Html.ActionLink("My employee info", "DetailsByUserName", "Employees", new { username = User.Identity.Name }, null)</li>
+                    }
+
+                    <!-- Links to all my notes, and/or creating a new note -->
+                    @if ((User as ClaimsPrincipal).HasClaim(ClaimTypes.Role, "Administrator"))
+                    {
+                        <li class="dropdown">
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown">Admin tasks <b class="caret"></b></a>
+                            <ul class="dropdown-menu">
+
+                                <li>@Html.ActionLink("List of all users", "Index", "Admin")</li>
+                                <li>@Html.ActionLink("List of non-manager users", "NonManagers", "Admin")</li>
+                                <li>@Html.ActionLink("All employees", "Index", "Employees")</li>
+                                <li>@Html.ActionLink("Find an employee", "EmployeeFinder", "Admin")</li>
+                                <li>@Html.ActionLink("All organizational units", "Index", "OUs")</li>
+                            </ul>
+                        </li>
+                    }
+
+                </ul>
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p>
+                &copy; @DateTime.Now.Year - BTI420 Faculty |
+                @Html.ActionLink("About", "About", "Home") |
+                @Html.ActionLink("Contact", "Contact", "Home")
+            </p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
