@@ -1,0 +1,9 @@
+﻿@model AjaxIntro.Controllers.InfoFormRegions
+
+<div class="form-group">
+    <label class="control-label col-md-2" for="Region">Region</label>
+    <div class="col-md-10">
+        @Html.DropDownList("Region", Model.Regions, new { @class = "form-control", @size = 10 })
+    </div>
+</div>
+

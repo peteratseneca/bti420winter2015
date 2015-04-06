@@ -1,0 +1,48 @@
+﻿@model IEnumerable<AjaxIntro.Controllers.ICTPerson>
+
+@{
+    ViewBag.Title = "ICT People";
+}
+
+<h2>ICT People</h2>
+
+<h4>Click a name to view details</h4>
+
+<div class="row">
+    @{
+        int counter = 0;
+        foreach (var item in Model)
+        {
+            // Render only the first 12...
+            if (counter < 12)
+            {
+                counter++;
+
+                // Create a unique identifier for the modal div
+                var personId = item.LastName + item.GivenNames;
+
+                // The following div holds the visible name
+                <div class="col-lg-3 col-md-4 col-sm-6 col-xs-12">
+                    <h3 data-toggle="modal" data-target="#@personId" class="name-box" >@item.FullName</h3>
+                </div>
+        
+                // The following div holds the modal div that appears when a name (above) is clicked
+                <div id="@personId" class="modal" style="display:none;">
+                    <div class="modal-dialog modal-sm">
+                        <div class="modal-content">
+                            <div class="modal-header text-center">
+                                <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                <h3>@item.FullName</h3>
+                                <p>Office: @item.RoomNumber</p>
+                                <p>Email:<br />@item.Email</p>
+                            </div>
+                            <div class="modal-body text-center">
+                                <img src="@item.PhotoUrl" style="width: 240px;" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        }
+    }
+</div>

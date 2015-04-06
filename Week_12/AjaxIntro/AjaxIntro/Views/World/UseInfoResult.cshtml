@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewBag.Title = "Cascade dropdown result";
+}
+
+<h2>Cascade dropdown result</h2>
+
+@{
+    var c = ViewBag.Country as AjaxIntro.Controllers.CountryBase;
+    var r = ViewBag.Region as AjaxIntro.Controllers.RegionBase;
+    
+    <hr />
+    
+    <h4>Country info</h4>
+    <dl class="dl-horizontal">
+        <dt>Country name</dt>
+        <dd>@c.Name</dd>
+        <dt>Identifier</dt>
+        <dd>@c.Id</dd>
+    </dl>
+
+    <hr />
+    
+    <h4>Region info</h4>
+    <dl class="dl-horizontal">
+        <dt>Region name</dt>
+        <dd>@r.Name</dd>
+        <dt>Identifier</dt>
+        <dd>@r.Id</dd>
+    </dl>
+}
+
+<hr />
+@Html.ActionLink("Back to 'use info'", "UseInfo")
